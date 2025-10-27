@@ -3,7 +3,9 @@ public class PerfectPet {
     public static void main(String [] args){
         // Name: Fouad Kadry
         //Date: 10/22/25
-        //This is the Vermin Supreeme pet selector that uses your inputs to determine your perfect pet
+        //This is the Vermin Supreme pet selector that uses your inputs to determine your perfect pet
+        int count = 0;
+        //This will ensure people only get 1 pet
         Scanner input = new Scanner(System.in);
         //Gets the name input
         System.out.println("give me your name now");
@@ -23,34 +25,41 @@ public class PerfectPet {
                 if (color.equals("blue")) {
                     if (season.equals("fall")) {
                         System.out.println("You get a pet alligator");
+                        count++;
                     }
                     else if (season.equals("spring")) {
                         System.out.println("You get a pet ostrich");
+                        count++;
                     }
                 }
-                else if (!"aeiou".contains(name.substring(0,1))) {
+                if (!"aeiou".contains(name.substring(0,1))&&count==0) {
                     if (season.equals("winter")&&color.equals("green")){
                         System.out.println("You get a pet giraffe");
+                        count++;
                     }
                     else if (color.equals("red")){
                         System.out.println("You get a pet panda");
+                        count++;
                     }
                     else if (color.equals("blue")&&(season.equals("spring")||season.equals("winter"))){
                         System.out.println("You get a pet axolotl");
+                        count++;
                     }
                 }
-                else if (color.equals("green")) {
+                if (color.equals("green")&&count==0) {
                     if (!season.equals("fall")) {
                         System.out.println("You get a pet dog");
+                        count++;
                     }
                 }
-                else if (color.equals("red")) {
+                if (color.equals("red")&&count==0) {
                     System.out.println("You get a pet porcupine");
+                    count++;
                 }
-                else if (season.equals("summer")){
+                if (season.equals("summer")&&count==0){
                     System.out.println("You get a pet pony");
                 }
-                else {
+                if (count==0) {
                     System.out.println("You get a pet rock");
                 }
         } 
